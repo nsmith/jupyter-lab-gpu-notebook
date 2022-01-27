@@ -10,3 +10,20 @@ RUN pip install torch torchvision
 RUN pip install tensorboardX
 # RUN pip install gym
 RUN pip install gym[atari,accept-rom-license]==0.19.0
+RUN pip install pandas
+RUN pip install statsmodels
+RUN apt-get install -y wget
+RUN apt-get install -y build-essential
+RUN apt-get install -y python-dev
+RUN pip install setuptools
+RUN wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
+RUN tar -xvf ta-lib-0.4.0-src.tar.gz
+RUN pwd
+WORKDIR "ta-lib"
+RUN ./configure --prefix=/usr
+RUN make
+RUN make install
+WORKDIR "/tf"
+RUN pip install TA-Lib
+RUN pip install seaborn
+RUN pip install scikit-learn
