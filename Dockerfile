@@ -27,3 +27,4 @@ WORKDIR "/tf"
 RUN pip install TA-Lib
 RUN pip install seaborn
 RUN pip install scikit-learn
+RUN pip install pandas-datareader
